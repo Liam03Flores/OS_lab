@@ -1,0 +1,10 @@
+# Compiled binaries
+*.exe
+*.out
+*.o
+
+# Build folders
+build/
+
+# OS files
+.DS_Store
