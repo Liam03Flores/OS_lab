@@ -24,16 +24,15 @@ void verificar_error(int valor, const char *operacion)
 
 int main(){
     int fd, n;
-    float arreglo[5];
+    float valores[] = {10.5, 20.5, 30.5, 40.5, 50.5};
 
-    fd = open("datos.txt", O_RDONLY);
-    verificar_error(fd, "open");
-    
-    n = read(fd, arreglo, sizeof(arreglo));
-    verificar_error(n, "read");
+    fd = creat("datos2.txt", 0666);
+    verificar_error(fd, "creat");
 
     for (int i = 0; i < 5; i++) {
-        printf("Valor %d: %.2f\n", i + 1, arreglo[i]);
+        n = write(fd, &valores[i], sizeof(float));
+        verificar_error(n, "write");
+        printf("Bytes escritos: %d\n", n);
     }
 
     close(fd);

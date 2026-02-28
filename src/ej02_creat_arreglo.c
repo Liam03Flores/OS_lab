@@ -22,19 +22,19 @@ void verificar_error(int valor, const char *operacion)
     }
 }
 
-int main(){
+int main()
+{
     int fd, n;
-    float arreglo[5];
+    float arreglo[] = {1.1, 2.2, 3.3, 4.4, 5.5};
 
-    fd = open("datos.txt", O_RDONLY);
+    fd = open("datos.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666); //es lo mismo que creat pero para windows
     verificar_error(fd, "open");
-    
-    n = read(fd, arreglo, sizeof(arreglo));
-    verificar_error(n, "read");
 
-    for (int i = 0; i < 5; i++) {
-        printf("Valor %d: %.2f\n", i + 1, arreglo[i]);
-    }
+    n = write(fd, arreglo, sizeof(arreglo));
+    verificar_error(n, "write");
+
+    printf("Bytes escritos: %d\n", n);
 
     close(fd);
+    return 0;
 }
