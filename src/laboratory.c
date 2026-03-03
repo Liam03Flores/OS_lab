@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-void verificar_error(int valor, const char *operacion)
+/*void verificar_error(int valor, const char *operacion)
 {
     if (valor < 0) {
         if (errno == EAGAIN) {
@@ -20,21 +20,22 @@ void verificar_error(int valor, const char *operacion)
         }
         exit(1);
     }
-}
+}*/
 
 int main(){
-    int fd, n;
-    float arreglo[5];
+    pid_t pid = -1;
+    int x = 5, y = 10;
 
-    fd = open("datos.txt", O_RDONLY);
-    verificar_error(fd, "open");
-    
-    n = read(fd, arreglo, sizeof(arreglo));
-    verificar_error(n, "read");
+    pid = fork();
 
-    for (int i = 0; i < 5; i++) {
-        printf("Valor %d: %.2f\n", i + 1, arreglo[i]);
+    //Código del hijo
+    if (pid == 0){
+        printf("Soy el hijo y mi pid = %d\n", getpid());
+        exit(0);
     }
 
-    close(fd);
+    //Código del padre (el hijo terminó en exit)
+    printf("Soy el padre y mi pid = %d\n", getpid());
+
+    return 0;
 }
