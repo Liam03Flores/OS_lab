@@ -8,8 +8,7 @@
 
 
 /* Función que revisa si ocurrió un error en una llamada al sistema */
-void verificarError(int valor)
-{
+void verificarError(int valor){
     if (valor < 0)
     {
         if (errno == EAGAIN)
@@ -33,10 +32,8 @@ void verificarError(int valor)
     }
 }
 
-
 /* Función que escribe números pares en el archivo N.txt */
-void escribirPares()
-{
+void escribirPares(){
     int arreglo[10] = {2,4,6,8,10,12,14,16,18,20};
 
     int fd = open("N.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -48,10 +45,8 @@ void escribirPares()
     close(fd);
 }
 
-
 /* Función que escribe números impares en el archivo M.txt */
-void escribirImpares()
-{
+void escribirImpares(){
     int arreglo[10] = {1,3,5,7,9,11,13,15,17,19};
 
     int fd = open("M.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -65,8 +60,7 @@ void escribirImpares()
 
 
 /* Función que lee ambos archivos y suma los arreglos */
-void leerArreglo()
-{
+void leerArreglo(){
     int arregloM[10];
     int arregloN[10];
     int suma[10];
@@ -105,8 +99,7 @@ void leerArreglo()
 
 
 
-int main()
-{
+int main(){
     pid_t pid_m, pid_n = -1;
 
     /* Primer proceso hijo */
