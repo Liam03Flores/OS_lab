@@ -26,7 +26,7 @@ int main(){
     int fd, n;
     float valores[] = {10.5, 20.5, 30.5, 40.5, 50.5};
 
-    fd = creat("datos2.txt", 0666);
+    fd = creat("datos3.txt", 0666);
     verificar_error(fd, "creat");
 
     for (int i = 0; i < 5; i++) {

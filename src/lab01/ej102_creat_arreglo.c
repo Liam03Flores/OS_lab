@@ -27,7 +27,7 @@ int main()
     int fd, n;
     float arreglo[] = {1.1, 2.2, 3.3, 4.4, 5.5};
 
-    fd = open("datos.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666); //es lo mismo que creat pero para windows
+    fd = open("datos1.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666); //es lo mismo que creat pero para windows
     verificar_error(fd, "open");
 
     n = write(fd, arreglo, sizeof(arreglo));

@@ -27,7 +27,7 @@ int main()
 {
 	int fd, n;
 	float arreglo[5];
-	fd = open("datos.txt", O_RDONLY);
+	fd = open("datos2.txt", O_RDONLY);
 	verificar_error(fd, "open");
 	n = read(fd, arreglo, sizeof(arreglo));
 	verificar_error(n, "read");
