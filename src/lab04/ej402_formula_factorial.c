@@ -37,7 +37,7 @@ int main()
         int formula_C = factorial(m);
         return (formula_C);
     }
-       pid_D = fork();
+    pid_D = fork();
     if (pid_D == 0){
         printf("Soy el proceso D, mi PID es %d y el PID de mi padre es %d.\n", getpid(), getppid());
         sleep(6);

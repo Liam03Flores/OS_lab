@@ -8,8 +8,7 @@ void handlerSIGINT(int s)
     sleep(3);
 }
 
-int main()
-{
+int main() {
     signal(SIGINT, handlerSIGINT);
 
     while (1)
